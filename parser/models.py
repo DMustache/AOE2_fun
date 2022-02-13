@@ -24,7 +24,7 @@ class Civilization(models.Model):
 
 
 class PlayersInMatches(models.Model):
-    pim_match_id = models.IntegerField(primary_key=True)
+    pim_match_id = models.ForeignKey('Match', on_delete=models.CASCADE)
     pim_player_id = models.ForeignKey('Player', on_delete=models.CASCADE)
     pim_civilization_id = models.ForeignKey('Civilization', on_delete=models.CASCADE)
     pim_color_id = models.ForeignKey('Colors', on_delete=models.CASCADE)
@@ -48,7 +48,7 @@ class Colors(models.Model):
 
 
 class Match(models.Model):
-    match_id = models.ForeignKey('PlayersInMatches', on_delete=models.CASCADE)
+    match_id = models.AutoField(primary_key=True)
     match_name = models.CharField(max_length=100)
     match_datetime_start = models.DateTimeField()
     match_duration = models.DateTimeField()
