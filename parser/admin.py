@@ -8,12 +8,9 @@ admin.site.register(
         Civilization,
         PlayersInMatches,
         Teams,
-        Colors,
         Match,
         MatchTag,
         MatchTagging,
         Map,
-        MapTag,
-        MapTagging,
     ]
 )
