@@ -1,14 +1,12 @@
 from django.shortcuts import render
 
-from parser.models import PlayersInMatches, Match, Player, Civilization, Teams
+from parser.models import PlayersInMatches, Match, Player, Civilization, Teams, Map
 
 
 def main(request):
-    model = Match.objects.order_by('match_datetime_start')
-    return render(request, 'main/main.html', {
-        'matches': model,
-        'players': Player,
-        'civs': Civilization,
-        'teams': Teams,
-        'pim': PlayersInMatches,
-    })
+    model = {
+        'match': {
+            i : 'None'
+        } for i in range(Match.objects.get().match_id)
+    }
+    return render(request, 'main/main.html', model)
