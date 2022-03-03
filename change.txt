@@ -1,0 +1,6 @@
+select pim_team_id, sum(player_rating) from (Match inner join PlayersInMatches on pim_match_id = Match.match_id) inner join Player on player_id = pim_player_id group by pim_team_id where match_id = 12345;
+
+select match_map from Match whetre match_id = 12345;
+
+
+
